@@ -1,6 +1,15 @@
 .fixed-top{
   margin-top: 160px;
   background:white;
-  color: black;
+  color:black;
 
+}
+.form-control
+{
+  float: right;
+  width: 200px;
+}
+.mr-sm-2
+{
+  float:right;
 }
