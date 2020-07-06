@@ -1,0 +1,72 @@
+
+<div class='fixed-top'>
+<div class='container'>
+  <div class="form-inline">
+    <input class="form-control mr-sm-2" [(ngModel)]='listFilter' placeholder="Search Using Date" aria-label="Search">
+  <div class="from-inline">
+  <select class="btn btn-outline-secondary" #i>
+    <option  value='date'>DATE</option>
+    <option value='active'>ACTIVE</option>
+    <option value='deltaconfirmed'>CONFIRMED</option>
+    <option value='confirmed'>TOTAL CONFIRMED</option>
+    <option value='deltarecovered'>RECOVERED</option>
+    <option value='recovered'>TOTAL RECOVERED</option>
+    <option value='deltadeaths'>DECEASED</option>
+    <option value='deaths'>TOTAL DECEASED</option>
+    <option value='rrate'>RECOVERY RATE</option>
+  <option value='drate'>DEATH RATE</option>
+  </select>
+  <button  class="btn btn-outline-success" (click)=sortA(i.value) id="i">Increasing</button>
+    <button  class="btn btn-outline-success" (click)=sortD(i.value) id="d">Decreasing</button>
+  </div>
+  </div>
+  </div>
+  </div>
+<div class='container' style="margin-top: 100px">
+
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">DATE</th>
+      <th scope="col">STATE</th>
+      <th scope="col">ACTIVE CASES</th>
+      <th scope="col">CONFIRMED</th>
+      <th scope="col">TOTAL CONFIRMED</th>
+      <th scope="col">RECOVERED</th>
+      <th scope="col">TOTAL RECOVERED</th>
+      <th scope="col">DECEASED</th>
+      <th scope="col">TOTAL DECEASED</th>
+      <th scope="col">RECOVERY RATE</th>
+      <th scope="col">DEATH RATE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let r of s1'>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]==d.getDate()'>{{d.getDate()+"/"+month+"/"+d.getFullYear()}}</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]==d.getDate()' >{{r.state}}</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]==d.getDate()'>{{r.active}}</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]==d.getDate()'>{{r.deltaconfirmed}}</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]==d.getDate()'>{{r.confirmed}}</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]==d.getDate()'>{{r.deltarecovered}}</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]==d.getDate()'>{{r.recovered}}</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]==d.getDate()'>{{r.deltadeaths}}</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]==d.getDate()'>{{r.deaths}}</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]!=d.getDate()'>{{d.getDate()+"/"+month+"/"+d.getFullYear()}}</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]!=d.getDate()' >{{r.state}}</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]!=d.getDate()'>{{r.active}}</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]!=d.getDate()'>Yet to update</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]!=d.getDate()'>{{r.confirmed}}</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]!=d.getDate()'>Yet to update</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]!=d.getDate()'>{{r.recovered}}</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]!=d.getDate()'>Yet to update</td>
+      <td *ngIf='r.state!="Total"&&r.lastupdatedtime[0]+r.lastupdatedtime[1]!=d.getDate()'>{{r.deaths}}</td>
+      <td *ngIf='r.state!="Total"'>{{((r.recovered/r.confirmed)*100).toFixed(2)}}</td>
+      <td *ngIf='r.state!="Total"'>{{((r.deaths/r.confirmed)*100).toFixed(2)}}</td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+
+

@@ -1,0 +1,14 @@
+.fixed-top{
+  margin-top: 60px;
+  background:white;
+  color:black;
+
+}
+.form-control
+{
+  float: right;
+}
+.mr-sm-2
+{
+  float:right;
+}

@@ -1,0 +1,30 @@
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1>News</h1>
+
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-4" *ngFor="let s of news.articles">
+          <div class="card" style="width: 300px;">
+            <img class="card-img-top" [src]='s.urlToImage' [title]='s.title' style='width:298px;height:180px;'  alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">{{s.description}}</p>
+              <a [href]='s.url' class="btn btn-primary">View More</a>
+              <small class="text-muted">{{'   '+s.publishedAt}}</small>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
